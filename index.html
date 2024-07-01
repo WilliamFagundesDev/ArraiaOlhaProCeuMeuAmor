@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+        defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="icon" href="icon.png" type="image/png">
+        <title>Arraiá Olha Pro Céu Meu Amor</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('papeldeparede.jpg');
+            background-size: contain;
+            background-position: top center;
+            background-repeat: initial;
+            color: floralwhite;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #BemVindo {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffffe3;
+            color: rgb(41, 41, 41);
+            width: 70%;
+            box-sizing: border-box;
+            border: 2px solid #000000;
+            border-radius: 15px;
+        }
+
+        #PagueAqui {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fcff58e3;
+            color: rgb(41, 41, 41);
+            width: 70%;
+            box-sizing: border-box;
+            border: 2px solid #000000;
+            border-radius: 15px;
+        }
+
+        #Comidas {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #a9ff58e3;
+            color: rgb(41, 41, 41);
+            width: 70%;
+            box-sizing: border-box;
+            border: 2px solid #000000;
+            border-radius: 15px;
+        }
+
+        #LocalEHora {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #4dd5ffe3;
+            color: rgb(41, 41, 41);
+            width: 70%;
+            box-sizing: border-box;
+            border: 2px solid #000000;
+            border-radius: 15px;
+        }
+
+        #enterDetails {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #8b4513e3;
+            color: rgb(255, 255, 255);
+            width: 70%;
+            box-sizing: border-box;
+            border: 2px solid #000000;
+            border-radius: 15px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            color: #8B4513;
+        }
+
+        input[type="checkbox"] {
+            margin: 10px 0;
+        }
+
+        label {
+            font-size: 1.2em;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #8B4513;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #ffecb3;
+        }
+
+        #addName {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        #addName:hover {
+            background-color: #ff8566;
+        }
+
+        span {
+            color: rgb(219, 0, 0);
+        }
+
+        #title {
+            background-image: url('https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/64/000000/external-party-carnival-tanah-basah-basic-outline-tanah-basah.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+
+        #flex {
+            display: flex;
+            justify-content: center;
+        }
+
+        .img_turma_monica {
+            width: 80%;
+        }
+
+        .img_turma_monica2 {
+            width: 300px;
+        }
+
+        .wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button {
+            min-width: 200px;
+            min-height: 60px;
+            display: inline-flex;
+            font-family: 'Nunito', sans-serif;
+            font-size: 22px;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1.3px;
+            font-weight: 700;
+            color: #313133;
+            background: #4FD1C5;
+            background: linear-gradient(90deg, #FFD700 0%, #d3b300 100%);
+            border: none;
+            border-radius: 1000px;
+            box-shadow: 6px 6px 12px #5a5a5a;
+            transition: all 0.3s ease-in-out 0s;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff3e0;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .important {
+            color: #ff0000;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .container_LocalEHora {
+            background-color: #fff;
+            border: 2px solid #dedede;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            height: 100%;
+            font-size: 25px;
+        }
+
+        .button:hover,
+        .button:focus {
+            transform: translateY(-6px);
+            padding: 20px;
+        }
+
+        #item2 {
+            margin: 40px;
+        }
+
+        .details {
+            background-color: #fff3e0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+            height: 100%;
+        }
+
+        .details p {
+            margin: 10px 0;
+        }
+
+        .pix-key {
+            font-weight: bold;
+        }
+
+        .qrcode {
+            width: 200px;
+        }
+
+        #SuperH1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 5em;
+            /* Tamanho da fonte */
+            color: #000000;
+            /* Cor do texto */
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            /* Sombra do texto */
+            background: linear-gradient(to right, #ffffff, #ffee00);
+            /* Degradê de fundo */
+            padding: 20px;
+            /* Espaçamento interno */
+            text-align: center;
+            /* Alinhamento do texto */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            /* Sombra da caixa */
+        }
+
+        @media (max-width: 1540px) {
+            body {
+                background-size: contain;
+                /* Adjust the image size to contain within the viewport */
+                background-position: top center;
+                /* Adjust position if needed */
+                background-repeat: initial;
+            }
+
+            #flex {
+                display: block;
+            }
+
+            .img_turma_monica2 {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: contain;
+                /* Adjust the image size to contain within the viewport */
+                background-position: top center;
+                /* Adjust position if needed */
+                background-repeat: initial;
+            }
+
+            #enterLogin,
+            #findDetails {
+                width: 100%;
+                float: none;
+            }
+
+            .img_turma_monica2 {
+                width: 160px;
+            }
+        }
+    </style>
+    <audio class="music" src="MusicaDeFundo.mp3" autoplay onloadedmetadata="this.volume=0.1"></audio>
+</head>
+
+<body>
+    <h1 id="SuperH1">Arraiá Olha Pro Céu Meu Amor</h1>
+    <div id="BemVindo">
+        <div id="flex">
+            <div id="item1">
+                <h1>Queridos familiares e amigos,</h1>
+                <h2>
+                    É com grande alegria que convidamos todos vocês para a nossa Festa Junina, uma celebração
+                    tradicional e cheia de encanto! Não podemos deixar essa data tão especial passar em branco, então
+                    preparamos uma festa repleta de animação e comidas típicas!
+                </h2>
+                <h2>
+                    <span>Valor: 50,00 por pessoa</span>
+                </h2>
+                <div id="flex">
+                    <div class="wrap">
+                        <a href="#LocalEHora"><button class="button">Local e Hora</button></a>
+                    </div>
+                    <div class="wrap">
+                        <a href="#Comidas"><button class="button">Cardápio</button></a>
+                    </div>
+                    <div class="wrap">
+                        <a href="#PagueAqui"><button class="button">Pague Aqui</button></a>
+                    </div>
+                    <div class="wrap">
+                        <a href="#enterDetails"><button class="button">Confirme Presença</button></a>
+                    </div>
+                </div>
+            </div>
+            <div id="item2">
+                <img class="img_turma_monica" src="img1.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="LocalEHora">
+        <div id="flex">
+            <div id="item3">
+                <img class="img_turma_monica2" src="img7.png">
+            </div>
+            <div id="item2">
+                <div class="container_LocalEHora">
+                    <h1>Local E Hora</h1>
+                    <p><strong>Data:</strong> 27 de julho de 2024</p>
+                    <p><strong>Horário:</strong> 14:00 h</p>
+                    <p><strong>Local:</strong> Condomínio Rio2, Residencial Verano, Salão Palmas</p>
+                    <p><strong>Endereço:</strong> Rua Sergio Camargo, 65</p>
+                    <p><strong>Traje:</strong> típico festa junina</p>
+                </div>
+            </div>
+            <div id="item3">
+                <img class="img_turma_monica2" src="img6.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="Comidas">
+        <div id="flex">
+            <div id="item1">
+                <h1>Cardápio</h1>
+                <h2>Comidas :</h2>
+                <ul>
+                    <li>Espetinho de frango, espetinho de carne, espetinho misto e salsichão</li>
+                    <li>Milho cozido e assado</li>
+                    <li>Canjica de milho</li>
+                    <li>Pamonha</li>
+                    <li>Batata doce assada 🍡</li>
+                    <li>Paçoca</li>
+                    <li>Pé de moleque</li>
+                    <li>Bolo de milho</li>
+                    <li>Bolo de cenoura com cobertura de chocolate 🥧</li>
+                    <li>Caldo verde 🍵</li>
+                    <li>Caldo de feijão</li>
+                    <li>Caldo de ervilha</li>
+                    <li>Cachorro quente</li>
+                    <li>Pipoca</li>
+                    <li>Cocada</li>
+                    <li>Canjiquinha</li>
+                    <li>Amendoim</li>
+                    <li>Pastel de carne moída</li>
+                    <li>Pastel de queijo 🧀</li>
+                </ul>
+                <h2>Bebidas :</h2>
+                <ul>
+                    <li>Drinques de abacaxi, morango, lima-da-pérsia e limão (Gim, vodka)</li>
+                    <li>Refrigerantes e água</li>
+                </ul>
+                <p class="important">IMPORTANTE: Quem quiser pode trazer cervejas para consumo próprio.</p>
+            </div>
+            <div id="item2">
+                <img class="img_turma_monica2" src="img3.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="PagueAqui">
+        <div id="flex">
+            <div id="item1">
+                <img class="img_turma_monica2" src="img4.png">
+            </div>
+            <div id="item2">
+                <div class="details">
+                    <h1>Pague Aqui</h1>
+                    <p>Os anfitriões custearão música ao vivo, que iniciará a partir das 15h. Para curti-la cheguem no
+                        horário!</p>
+                    <p>O limite máximo do salão é de 50 pessoas.</p>
+                    <p>Para garantir sua participação, pedimos que efetuem o pagamento e confirmem sua presença
+                        colocando seu nome na relação abaixo até o dia <strong>10 de julho de 2024</strong>. Os dados
+                        para o pagamento são os seguintes:</p>
+                    <p class="pix-key"><span>Chave PIX: 91515599787</span></p>
+                    <p>Contamos com a presença de todos para tornar essa festa ainda mais especial!</p>
+                    <img class="qrcode" src="qrcode.png">
+                </div>
+            </div>
+            <div id="item3">
+                <img class="img_turma_monica2" src="img5.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="enterDetails">
+        <div id="flex">
+            <div id="item1">
+                <h1 id="title">🎉 Confirmar Presença 🎉</h1>
+
+                <h4>Nome Completo</h4>
+                <div id="nameInputs">
+                    <input type="text" class="enterName" placeholder="Digite o nome completo">
+                </div>
+                <button id="addName">Adicionar outra pessoa</button>
+
+                <h4>Já pagou?</h4>
+                <input type="checkbox" id="enterPago" name="subscribe" value="newsletter">
+                <label for="enterPago">Sim</label>
+                <p></p>
+
+                <button id="insert">Enviar</button>
+            </div>
+            <div id="item2">
+                <img class="img_turma_monica2" src="img2.png">
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+        import { getDatabase, set, get, update, remove, ref, child }
+            from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBe7nF_uZFxhOco_QbSvAS4sm5YVa5qGpw",
+            authDomain: "festajuninaeunice2024.firebaseapp.com",
+            databaseURL: "https://festajuninaeunice2024-default-rtdb.firebaseio.com",
+            projectId: "festajuninaeunice2024",
+            storageBucket: "festajuninaeunice2024.appspot.com",
+            messagingSenderId: "244925663239",
+            appId: "1:244925663239:web:ca25baa01b4a55aefbc2a2",
+            measurementId: "G-J03RP9DD69"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const db = getDatabase();
+        const auth = getAuth();
+
+        const enterPago = document.querySelector("#enterPago");
+        const nameInputsDiv = document.querySelector("#nameInputs");
+        const insertBtn = document.querySelector("#insert");
+        const addNameBtn = document.querySelector("#addName");
+
+        function InsertData() {
+            const pagoValue = enterPago.checked ? "Sim" : "Não";
+            const nameInputs = document.querySelectorAll(".enterName");
+
+            nameInputs.forEach((input, index) => {
+                set(ref(db, "Convidados/" + input.value), {
+                    Name: input.value,
+                    Pago: pagoValue,
+                })
+                    .then(() => {
+                        if (index === nameInputs.length - 1) {
+                            alert("Obrigado por confirmar presença!");
+                        }
+                    })
+                    .catch((error) => {
+                        alert(error);
+                    });
+            });
+        }
+
+        function FindData() {
+            const dbref = ref(db);
+
+            get(child(dbref, "Convidados/"))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        console.log(snapshot.val());
+                    } else {
+
+                    }
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+
+        function AddNameInput() {
+            const newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.className = "enterName";
+            newInput.placeholder = "Digite o nome completo";
+            nameInputsDiv.appendChild(newInput);
+        }
+
+        insertBtn.addEventListener('click', InsertData);
+        addNameBtn.addEventListener('click', AddNameInput);
+        FindData();
+
+    </script>
+</body>
+
+</html>

@@ -574,6 +574,18 @@
         function InsertData() {
             const pagoValue = enterPago.checked ? "Sim" : "Não";
             const nameInputs = document.querySelectorAll(".enterName");
+            let allInputsFilled = true;
+
+            nameInputs.forEach((input) => {
+                if (input.value.trim() === "") {
+                    allInputsFilled = false;
+                }
+            });
+
+            if (!allInputsFilled) {
+                alert("Por favor, preencha todos os campos de nome.");
+                return;
+            }
 
             nameInputs.forEach((input, index) => {
                 set(ref(db, "Convidados/" + input.value), {
@@ -590,6 +602,7 @@
                     });
             });
         }
+
 
         function FindData() {
             const dbref = ref(db);

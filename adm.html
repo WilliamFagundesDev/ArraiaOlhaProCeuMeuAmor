@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="icon.png" type="image/png">
+    <title>Arraiá Olha Pro Céu Meu Amor</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('papeldeparede.jpg');
+            background-size: contain;
+            background-position: top center;
+            background-repeat: initial;
+            color: rgb(0, 0, 0);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff3e0;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 500px !important;
+        }
+
+        .btnRemove{
+            background-color: #d80000;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #00000054;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        .btnPago_NaoPago {
+            background-color: #fff3e0;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        .pago {
+            color: green;
+        }
+
+        .nao-pago {
+            color: red;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .Flex {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lista-convidados {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 550px) {
+            body {
+                background-size: cover;
+            }
+
+            ul li {
+                width: 100% !important;
+                font-size: 16px;
+                padding: 8px;
+                margin: 5px;
+            }
+
+            .btnRemove{
+                font-size: 16px;
+                width: 40px;
+                margin: 5px auto;
+            }
+
+            .btnPago_NaoPago {
+                font-size: 16px;
+                width: 200px;
+                margin: 5px auto;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .Flex {
+                flex-direction: column;
+                align-items: stretch;
+                background-color: rgb(138, 138, 138);
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Convidados</h1>
+    <ul id="lista-convidados"></ul>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+        import { getDatabase, ref, get, child, remove, update } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBe7nF_uZFxhOco_QbSvAS4sm5YVa5qGpw",
+            authDomain: "festajuninaeunice2024.firebaseapp.com",
+            databaseURL: "https://festajuninaeunice2024-default-rtdb.firebaseio.com",
+            projectId: "festajuninaeunice2024",
+            storageBucket: "festajuninaeunice2024.appspot.com",
+            messagingSenderId: "244925663239",
+            appId: "1:244925663239:web:ca25baa01b4a55aefbc2a2",
+            measurementId: "G-J03RP9DD69"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase();
+        const auth = getAuth();
+
+        function FindData() {
+            const dbref = ref(db);
+            const listaConvidados = document.getElementById('lista-convidados');
+            listaConvidados.innerHTML = '';
+            get(child(dbref, "Convidados/"))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const convidados = snapshot.val();
+
+                        for (const convidado in convidados) {
+                            if (convidados.hasOwnProperty(convidado)) {
+                                const card = document.createElement('div');
+                                const item = document.createElement('li');
+                                const btnRemove = document.createElement('button');
+                                const btnPagoNaoPago = document.createElement('button');
+                                const nome = convidados[convidado].Name;
+                                const pago = convidados[convidado].Pago;
+
+                                card.className = "Flex";
+                                btnRemove.className = "btnRemove";
+                                btnPagoNaoPago.className = "btnPago_NaoPago";
+                                btnRemove.textContent = "X";
+                                btnPagoNaoPago.textContent = pago === "Sim" ? "Marcar como Não Pago" : "Marcar como Pago";
+
+                                btnRemove.addEventListener('click', () => {
+                                    if (confirm("Deseja realmente remover este convidado?")) {
+                                        RemoveData(convidado);
+                                    }
+                                });
+
+                                btnPagoNaoPago.addEventListener('click', () => {
+                                    if (confirm(`Deseja realmente ${pago === "Sim" ? "marcar como Não Pago" : "marcar como Pago"} este convidado?`)) {
+                                        TogglePago(convidado, pago === "Sim" ? "Não" : "Sim");
+                                    }
+                                });
+
+                                item.textContent = `${nome} - Pago: ${pago}`;
+                                item.className = pago === "Sim" ? "pago" : "nao-pago";
+                                card.appendChild(item);
+                                card.appendChild(btnRemove);
+                                card.appendChild(btnPagoNaoPago);
+                                listaConvidados.appendChild(card);
+                            }
+                        }
+                    } else {
+                        const texto = document.createElement('li');
+                        texto.textContent = "Nenhum dado disponível";
+                        listaConvidados.appendChild(texto);
+                    }
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+
+        function RemoveData(convidadoId) {
+            remove(ref(db, "Convidados/" + convidadoId))
+                .then(() => {
+                    alert("Data deleted successfully");
+                    FindData(); // Refresh the list after deletion
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+
+        function TogglePago(convidadoId, newStatus) {
+            update(ref(db, "Convidados/" + convidadoId), {
+                Pago: newStatus
+            })
+                .then(() => {
+                    alert("Status updated successfully");
+                    FindData(); // Refresh the list after update
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+
+        FindData();
+    </script>
+</body>
+
+</html>
